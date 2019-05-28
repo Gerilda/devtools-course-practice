@@ -64,7 +64,7 @@ TEST_F(ModifStackAppTest, Can_Push_Number) {
 
     Act(args);
 
-    Assert("1 is the top stack element extracted of");
+    Assert("1 is the top stack element extracted of.");
 }
 
 TEST_F(ModifStackAppTest, Can_Check_Size) {
@@ -74,6 +74,15 @@ TEST_F(ModifStackAppTest, Can_Check_Size) {
     Act(args);
 
     Assert("2 is the size of modific stack.");
+}
+
+TEST_F(ModifStackAppTest, Can_Top_Element) {
+    // Arrange
+    std::vector<std::string> args = {"Push", "1", "Top", "Push", "3", "Top"};
+
+    Act(args);
+
+    Assert("1 is the top stack element extracted of.\\3 is the top stack element extracted of.");
 }
 
 

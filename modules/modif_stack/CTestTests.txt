@@ -45,7 +45,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Push_Number PROPERTIES
-    PASS_REGULAR_EXPRESSION "\\(1 is the top stack element extracted of)\\"
+    PASS_REGULAR_EXPRESSION "\\1 is the top stack element extracted of.\\"
     LABELS "${MODULE}")
 
 add_test(
@@ -55,4 +55,13 @@ add_test(
 
 set_tests_properties (${prefix}_Can_Check_Size PROPERTIES
     PASS_REGULAR_EXPRESSION "2 is the size of modific stack."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Top_Element
+    COMMAND ${APPLICATION} Push 1 Top Push 3 Top
+)
+
+set_tests_properties (${prefix}_Can_Top_Element
+    PASS_REGULAR_EXPRESSION "1 is the top stack element extracted of.\\3 is the top stack element extracted of."
     LABELS "${MODULE}")

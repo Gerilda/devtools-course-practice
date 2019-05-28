@@ -53,7 +53,7 @@ int ModifStackApp::ParseOperation(const char **argv) {
     }
     if (std::strcmp(*argv, "Top") == 0) {
         std::pair<int, int> value = modstack_.Top();
-        out_ << " ( " << std::get<0>(value) << " is the top stack element extracted of) ";
+        out_ << "(" << std::get<0>(value) << " is the top stack element extracted of.)";
         return 2;
     }
     throw std::runtime_error(std::string("Unknown operation: ") +
