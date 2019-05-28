@@ -1,7 +1,7 @@
 // Copyright 2019 Trubina Anastasia
 
-#ifndef DEVTOOLS_MODIF_STACK_APP_H_
-#define DEVTOOLS_MODIF_STACK_APP_H_
+#ifndef DEVTOOLS_MODIF_STACK_APP_H__
+#define DEVTOOLS_MODIF_STACK_APP_H__
 
 #include <sstream>
 #include <string>
@@ -12,7 +12,6 @@ class ModifStackApp {
     std::string Help(const char *application);
     int ParseOperation(const char **argv);
     int ParseNumber(const char *s);
-    //bool validateNumberOfArguments(int argc, const char** argv);
     ModifStack modstack_;
     std::stringstream out_;
  public:
@@ -20,4 +19,4 @@ class ModifStackApp {
     std::string operator()(int argc, const char** argv);
 };
 
-#endif //DEVTOOLS_MODIF_STACK_APP_H_
+#endif  // DEVTOOLS_MODIF_STACK_APP_H__
