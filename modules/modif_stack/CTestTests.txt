@@ -1,0 +1,58 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Run
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_Can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Do_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_Do_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Do_Print_Help_Without_Arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Handles_Incorrect_Command_Args
+    COMMAND ${APPLICATION} push 1
+)
+
+set_tests_properties (${prefix}_Recognize_Unknown_Operation PROPERTIES
+    PASS_REGULAR_EXPRESSION "Unknown operation: push"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Check_Size_Of_Empty_Stack
+    COMMAND ${APPLICATION} Size
+)
+
+set_tests_properties (${prefix}_Can_Check_Size_Of_Empty_Stack PROPERTIES
+    PASS_REGULAR_EXPRESSION "0 is the size of modific stack."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Push_Number
+    COMMAND ${APPLICATION} Push 1 Top
+)
+
+set_tests_properties (${prefix}_Can_Push_Number PROPERTIES
+    PASS_REGULAR_EXPRESSION "\\(1 is the top stack element extracted of)\\"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_Can_Check_Size
+    COMMAND ${APPLICATION} Push 1 Push 2 Size
+)
+
+set_tests_properties (${prefix}_Can_Check_Size PROPERTIES
+    PASS_REGULAR_EXPRESSION "2 is the size of modific stack."
+    LABELS "${MODULE}")

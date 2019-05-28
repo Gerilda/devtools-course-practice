@@ -14,6 +14,7 @@ class ModifStack {
     std::vector<std::pair<int, int>> stack_;
 
  public:
+    ModifStack();
     explicit ModifStack(std::vector<int> temp);
     ModifStack(const ModifStack &src) = default;
 

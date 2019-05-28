@@ -20,6 +20,14 @@ TEST(ModifStack, Can_Creating_Empty_Stack) {
     EXPECT_EQ(y.Size(), 0);
 }
 
+TEST(ModifStack, Can_Create_Empty_Stack) {
+    // Arrange & Arrange
+    ModifStack y;
+
+    // Assert
+    EXPECT_EQ(y.Size(), 0);
+}
+
 TEST(ModifStack, Can_Create_Stack_In_Non_Empty_Vector) {
     // Arrange
     std::vector<int> x = {4, 6, 7};
@@ -114,6 +122,17 @@ TEST(ModifStack, Can_Push_In_Stack) {
     // Arrange
     std::vector<int> x = {4, 29, 3};
     ModifStack y(x);
+
+    // Act
+    y.Push(21);
+
+    // Assert
+    EXPECT_EQ(21, y.Top().first);
+}
+
+TEST(ModifStack, Can_Push_In_Empty_Stack) {
+    // Arrange
+    ModifStack y;
 
     // Act
     y.Push(21);
