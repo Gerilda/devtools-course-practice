@@ -104,7 +104,7 @@ std::string LCDDigits::LCDStr(const std::string& s) {
                     lcdN += point[line];
                     break;
                 default:
-                    throw "Invalid Symbol";
+                    throw std::string("Invalid Symbol\n");
                     break;
             }
             lcdN += " ";

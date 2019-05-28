@@ -34,6 +34,8 @@ Node* Dictionary::Insert(const Word& x, Node* t) {
                 t = DoubleLeftRotate(t);
             }
         }
+    } else if (x.first == t->data_.first) {
+        t->data_.second = x.second;
     }
 
     t->height_ = max(Height(t->left_), Height(t->right_)) + 1;
@@ -73,6 +75,14 @@ Node* Dictionary::FindMin(Node* t) {
         return t;
     } else {
         return FindMin(t->left_);
+    }
+}
+
+Node * Dictionary::FindMax(Node * t) {
+    if (t->right_ == nullptr) {
+        return t;
+    } else {
+        return FindMax(t->right_);
     }
 }
 
@@ -121,31 +131,31 @@ Node* Dictionary::Remove(const Word& x, Node* t) {
         // If Node is unbalanced
         // If left Node is deleted, right case
         //
-        if (Height(t->left_->left_) - Height(t->left_->right_) == 1) {
+        if (Height(t->left_->right_) - Height(t->left_->left_) == 1) {
             //
             // right right case
             //
-            return SingleRightRotate(t);
+            return DoubleRightRotate(t);
         } else {
             //
-            // right left case
+            // Single right case
             //
-            return DoubleRightRotate(t);
+            return SingleRightRotate(t);
         }
     } else if (Height(t->right_) - Height(t->left_) == 2) {
         //
         // If right Node is deleted, left case
         //
-        if (Height(t->right_->right_) - Height(t->right_->left_) == 1) {
+        if (Height(t->right_->left_) - Height(t->right_->right_) == 1) {
             //
             // left left case
             //
-            return SingleLeftRotate(t);
+            return DoubleLeftRotate(t);
         } else {
             //
-            // left right case
+            // Single left case
             //
-            return DoubleLeftRotate(t);
+            return SingleLeftRotate(t);
         }
     }
     return t;
@@ -187,6 +197,16 @@ Word Dictionary::GetRoot() const {
     } else {
         return Word();
     }
+}
+
+Word Dictionary::FindMin() {
+    Node* t = FindMin(root_);
+    return t->data_;
+}
+
+Word Dictionary::FindMax() {
+    Node* t = FindMax(root_);
+    return t->data_;
 }
 
 char GetRandomChar() {

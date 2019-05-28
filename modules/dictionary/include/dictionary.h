@@ -24,6 +24,7 @@ class Dictionary {
     Node* DoubleLeftRotate(Node* t);
     Node* DoubleRightRotate(Node* t);
     Node* FindMin(Node* t);
+    Node* FindMax(Node* t);
     Node* Remove(const Word& x, Node* t);
     int Height(Node* t);
     Node* root_;
@@ -33,6 +34,8 @@ class Dictionary {
     void Insert(const Word& x);
     void Remove(const Word& x);
     Word GetRoot() const;
+    Word FindMin();
+    Word FindMax();
 };
 
 #endif  // MODULES_DICTIONARY_INCLUDE_DICTIONARY_H_
