@@ -5,7 +5,7 @@
 #include "include/tree_application.h"
 
 class TreeApplicationTest : public ::testing::Test {
-protected:
+ protected:
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
 
@@ -21,9 +21,9 @@ protected:
     }
     void Assert(std::string expected) {
         EXPECT_TRUE(::testing::internal::RE::PartialMatch(output_,
-                                                          ::testing::internal::RE(expected)));
+                        ::testing::internal::RE(expected)));
     }
-private:
+ private:
     TreeApplication app_;
     std::string output_;
 };
@@ -58,7 +58,7 @@ TEST_F(TreeApplicationTest, Adds_Deletes_And_Searches_The_Same_Number) {
 TEST_F(TreeApplicationTest, Can_Search_Twice_The_Same_Number) {
     // Arrange
     std::vector<std::string> args = {"add", "1", "search", "1",
-                                     "del", "1", "search", "1"};
+                           "del", "1", "search", "1"};
 
     Act(args);
 
