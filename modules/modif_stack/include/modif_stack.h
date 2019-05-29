@@ -20,10 +20,10 @@ class ModifStack {
 
     bool Empty();
     std::size_t Size();
-
     std::pair<int, int> Top();
     void Push(int number);
     void Pop();
+    int GetMinEl();
     std::vector<std::pair<int, int>> ShowReverseStack();
 };
 

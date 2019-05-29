@@ -107,12 +107,25 @@ TEST(ModifStack, Can_Pop_In_Non_Empty_Stack) {
 
 TEST(Modif_Stack, Can_Get_Min_Via_Top_In_Stack) {
     // Arrange
-    std::vector<int> x = {4, 29, 3};
+    std::vector<int> x = {4, 3, 29};
     ModifStack y(x);
     int min = 0;
 
     // Act
     min = y.Top().second;
+
+    // Assert
+    EXPECT_EQ(3, min);
+}
+
+TEST(Modif_Stack, Can_Get_Min_Element) {
+    // Arrange
+    std::vector<int> x = {4, 3, 29};
+    ModifStack y(x);
+    int min = 0;
+
+    // Act
+    min = y.GetMinEl();
 
     // Assert
     EXPECT_EQ(3, min);

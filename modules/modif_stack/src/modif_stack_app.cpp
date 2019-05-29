@@ -42,19 +42,24 @@ int ModifStackApp::ParseOperation(const char **argv) {
         modstack_.Push(value);
         return 2;
     }
-    if (std::strcmp(*argv, "Pop") == 0) {
-        modstack_.Pop();
-        return 2;
+    if (std::strcmp(*argv, "GetMin") == 0) {
+        int value = modstack_.GetMinEl();
+        out_ << "Minimum element: " << value;
+        return 1;
     }
     if (std::strcmp(*argv, "Size") == 0) {
         std::size_t value = modstack_.Size();
-        out_ << value << " is the size of modific stack.";
-        return 2;
+        out_ << "Size of modific stack: "<< value ;
+        return 1;
     }
     if (std::strcmp(*argv, "Top") == 0) {
         std::pair<int, int> value = modstack_.Top();
-        out_ << "(" << std::get<0>(value) << " is the top stack element extracted of.)";
-        return 2;
+        out_ << "Top element: " << std::get<0>(value) << ". ";
+        return 1;
+    }
+    if (std::strcmp(*argv, "Pop") == 0) {
+        modstack_.Pop();
+        return 1;
     }
     throw std::runtime_error(std::string("Unknown operation: ") +
                              std::string(*argv));
@@ -72,7 +77,7 @@ int ModifStackApp::ParseNumber(const char *s) {
     int64_t result = std::strtol(s, nullptr, 10);
     if (result <= static_cast<int64_t>(std::numeric_limits<int>::min()) ||
         result >= static_cast<int64_t>(std::numeric_limits<int>::max())) {
-        throw std::runtime_error("Number is out of bounds");
+        throw std::runtime_error("Number overflows");
     }
     return static_cast<int>(result);
 }

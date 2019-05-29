@@ -49,13 +49,31 @@ TEST_F(ModifStackAppTest, Recognize_Unknown_Operation) {
     Assert("Unknown operation: push");
 }
 
+TEST_F(ModifStackAppTest, Argument_Is_Not_Number) {
+    // Arrange
+    std::vector<std::string> args = {"Push", "o"};
+
+    Act(args);
+
+    Assert("o is not the number");
+}
+
+TEST_F(ModifStackAppTest, Overflows_Of_Argument) {
+    // Arrange
+    std::vector<std::string> args = {"Push", "100000000000"};
+
+    Act(args);
+
+    Assert("Number overflows");
+}
+
 TEST_F(ModifStackAppTest, Can_Check_Size_Of_Empty_Stack) {
     // Arrange
     std::vector<std::string> args = {"Size"};
 
     Act(args);
 
-    Assert("0 is the size of modific stack.");
+    Assert("Size of modific stack: 0");
 }
 
 TEST_F(ModifStackAppTest, Can_Push_Number) {
@@ -64,7 +82,7 @@ TEST_F(ModifStackAppTest, Can_Push_Number) {
 
     Act(args);
 
-    Assert("1 is the top stack element extracted of.");
+    Assert("Top element: 1. ");
 }
 
 TEST_F(ModifStackAppTest, Can_Check_Size) {
@@ -73,7 +91,7 @@ TEST_F(ModifStackAppTest, Can_Check_Size) {
 
     Act(args);
 
-    Assert("2 is the size of modific stack.");
+    Assert("Size of modific stack: 2");
 }
 
 TEST_F(ModifStackAppTest, Can_Top_Element) {
@@ -82,9 +100,23 @@ TEST_F(ModifStackAppTest, Can_Top_Element) {
 
     Act(args);
 
-    Assert("1 is the top stack element extracted of.\\3 is the top stack element extracted of.");
+    Assert("Top element: 1. Top element: 3. ");
 }
 
+TEST_F(ModifStackAppTest, Can_Pop_Element) {
+    // Arrange
+    std::vector<std::string> args = {"Push", "1", "Push", "3", "Pop", "Top"};
 
+    Act(args);
 
+    Assert("Top element: 1. ");
+}
 
+TEST_F(ModifStackAppTest, Can_Get_Minimum) {
+    // Arrange
+    std::vector<std::string> args = {"Push", "1", "Push", "3", "GetMin"};
+
+    Act(args);
+
+    Assert("Minimum element: 1");
+}

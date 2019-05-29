@@ -45,7 +45,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Push_Number PROPERTIES
-    PASS_REGULAR_EXPRESSION "\\1 is the top stack element extracted of.\\"
+    PASS_REGULAR_EXPRESSION "\\(1 is the top stack element extracted of)\\"
     LABELS "${MODULE}")
 
 add_test(
@@ -63,5 +63,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Top_Element
-    PASS_REGULAR_EXPRESSION "1 is the top stack element extracted of.\\3 is the top stack element extracted of."
+    PASS_REGULAR_EXPRESSION "1 is the top stack element extracted of.3 is the top stack element extracted of."
     LABELS "${MODULE}")

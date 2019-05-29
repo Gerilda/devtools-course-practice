@@ -63,6 +63,12 @@ void ModifStack::Pop() {
     }
 }
 
+int ModifStack::GetMinEl() {
+    if (this->Size() == 0) {
+        throw std::string("Not to read in empty stack");
+    }
+    return this->stack_[stack_.size()-1].second;
+}
 
 std::vector<std::pair<int, int>> ModifStack::ShowReverseStack() {
     std::vector<std::pair<int, int>> res(this->stack_);
