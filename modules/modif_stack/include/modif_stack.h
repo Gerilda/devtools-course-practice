@@ -1,7 +1,7 @@
 // Copyright 2019 Karasev Anton
 
-#ifndef MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
-#define MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
+#ifndef MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H__
+#define MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H__
 
 #include <iostream>
 #include <vector>
@@ -27,4 +27,4 @@ class ModifStack {
     std::vector<std::pair<int, int>> ShowReverseStack();
 };
 
-#endif  // MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H_
+#endif  // MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_H__
