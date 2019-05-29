@@ -9,8 +9,6 @@
 #include "include/modif_stack.h"
 #include "include/modif_stack_app.h"
 
-ModifStackApp::ModifStackApp() : out_("") {}
-
 std::string ModifStackApp::Help(const char *application) {
     return "This is application for modific stack class\n"
            "Please provide arguments in the following format:\n"

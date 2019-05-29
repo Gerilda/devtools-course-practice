@@ -15,7 +15,7 @@ class ModifStackApp {
     ModifStack modstack_;
     std::stringstream out_;
  public:
-    ModifStackApp();
+    ModifStackApp() = default;
     std::string operator()(int argc, const char** argv);
 };
 

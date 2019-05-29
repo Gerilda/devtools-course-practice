@@ -7,8 +7,6 @@
 #include <string>
 #include <vector>
 
-ModifStack::ModifStack() {}
-
 ModifStack::ModifStack(std::vector<int> temp) {
     if (temp.size() != 0) {
         std::pair<int, int> tmp;
