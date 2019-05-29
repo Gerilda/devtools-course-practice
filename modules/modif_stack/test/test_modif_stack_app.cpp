@@ -8,7 +8,7 @@
 #include "include/modif_stack_app.h"
 
 class ModifStackAppTest : public ::testing::Test {
-protected:
+ protected:
     void Act(std::vector<std::string> args_) {
         std::vector<const char*> options;
 
@@ -26,7 +26,7 @@ protected:
         EXPECT_TRUE(::testing::internal::RE::PartialMatch(output_,
                 ::testing::internal::RE(expected)));
     }
-private:
+ private:
     ModifStackApp app_;
     std::string output_;
 };
