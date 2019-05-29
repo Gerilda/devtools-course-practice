@@ -44,18 +44,18 @@ int ModifStackApp::ParseOperation(const char **argv) {
         return 2;
     }
     if (std::strcmp(*argv, "GetMin") == 0) {
-        int value = modstack_.GetMinEl();
-        out_ << "Minimum element: " << value;
+        int val = modstack_.GetMinEl();
+        out_ << "Minimum element: " << val;
         return 1;
     }
     if (std::strcmp(*argv, "Size") == 0) {
-        std::size_t value = modstack_.Size();
-        out_ << "Size of modific stack: "<< value;
+        std::size_t val = modstack_.Size();
+        out_ << "Size of modific stack: "<< val;
         return 1;
     }
     if (std::strcmp(*argv, "Top") == 0) {
-        std::pair<int, int> value = modstack_.Top();
-        out_ << "Top element: " << std::get<0>(value) << ". ";
+        std::pair<int, int> val = modstack_.Top();
+        out_ << "Top element: " << std::get<0>(val) << ". ";
         return 1;
     }
     if (std::strcmp(*argv, "Pop") == 0) {
