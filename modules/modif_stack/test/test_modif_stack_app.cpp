@@ -51,11 +51,11 @@ TEST_F(ModifStackAppTest, Recognize_Unknown_Operation) {
 
 TEST_F(ModifStackAppTest, Argument_Is_Not_Number) {
     // Arrange
-    std::vector<std::string> args = {"Push", "lol"};
+    std::vector<std::string> args = {"Push", "o"};
 
     Act(args);
 
-    Assert("lol is not the number");
+    Assert("o is not the number");
 }
 
 TEST_F(ModifStackAppTest, Overflows_Of_Argument) {
