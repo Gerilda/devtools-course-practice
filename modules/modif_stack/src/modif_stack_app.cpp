@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <utility>
 #include "include/modif_stack.h"
 #include "include/modif_stack_app.h"
 
@@ -49,7 +50,7 @@ int ModifStackApp::ParseOperation(const char **argv) {
     }
     if (std::strcmp(*argv, "Size") == 0) {
         std::size_t value = modstack_.Size();
-        out_ << "Size of modific stack: "<< value ;
+        out_ << "Size of modific stack: "<< value;
         return 1;
     }
     if (std::strcmp(*argv, "Top") == 0) {
