@@ -1,7 +1,7 @@
 // Copyright 2019 Trubina Anastasia
 
-#ifndef MODULES_MODIF_STACK_INCLUDE_MODIF_STACK_APP_H___
-#define MODULES_MODIF_STACK_APP_INCLUDE_MODIF_STACK_H___
+#ifndef MODULES_MODIF_STACK_APP_INCLUDE_MODIF_STACK_APP_H__
+#define MODULES_MODIF_STACK_APP_INCLUDE_MODIF_STACK_H__
 
 #include <sstream>
 #include <string>
@@ -19,4 +19,4 @@ class ModifStackApp {
     std::string operator()(int argc, const char** argv);
 };
 
-#endif  // MODULES_MODIF_STACK_APP_INCLUDE_MODIF_STACK_H___
+#endif  // MODULES_MODIF_STACK_APP_INCLUDE_MODIF_STACK_H__
